@@ -1,0 +1,263 @@
+$background-color: #fff;//#0b131d;//#101c1d;
+$primary-text-color: #0b131d;//white;
+$accent-color: yellow;
+$hamburger-layer-color:$primary-text-color;
+$primary-font-family: 'Montserrat', sans-serif;
+$hamburger-layer-width                     : 30px;
+$hamburger-layer-height                    : 3px;
+$mobile-width:1024px;
+$primary-font-scale:1.3;
+@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+@import "../node_modules/slick-carousel/slick/slick";
+@import "../node_modules/slick-carousel/slick/slick-theme";
+//@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400&subset=latin-ext');
+
+@mixin primary-gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#22b573+1,29abe2+100 */
+  background: #22b573; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #22b573 1%, #29abe2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #22b573 1%, #29abe2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #22b573 1%, #29abe2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#22b573', endColorstr='#29abe2', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+.col-xl-8{
+  overflow-x: hidden;
+}
+body {
+  background-color: $background-color;
+  color: $primary-text-color;
+  font-family: $primary-font-family;
+  font-size: $primary-font-scale*1em;
+  font-weight: 400;
+}
+.material-icons{
+  padding-right: 10px;
+}
+#particles-js{
+
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+}
+.main-screen,body{
+  width: 100%;
+  overflow-x: hidden;
+}
+#particles-js{
+  overflow: hidden;
+}
+$pixel-font-scale:15px;
+$em-font-scale:2vw;
+.intro-screen{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+
+  .scroll-downs {
+
+    margin-top: auto;
+margin-bottom: 10px;
+
+    width :34px;
+    height: 55px;
+  }
+  .mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 1px solid $primary-text-color;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+  }
+  .scroller {
+
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: $primary-text-color;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+  }
+
+  & h1{
+    margin-top: auto;
+    font-weight: 400;
+    font-size: 4*$pixel-font-scale*$primary-font-scale;
+    @media (max-width: $mobile-width) {
+      font-size: 4*$em-font-scale*$primary-font-scale;
+    }
+  }
+  & h2{
+    margin-top: 15px;
+    font-weight: 400;//zmiana
+
+    font-size: 2*$pixel-font-scale*$primary-font-scale;
+    @media (max-width: $mobile-width) {
+      font-size: 2*$em-font-scale*$primary-font-scale;
+    }
+  }
+  & h3 .btn{
+    border: 0;
+    &:hover{
+      color:white;
+      background-color: $primary-text-color;
+    }
+
+  }
+  .btn-outline-light{
+    color:$primary-text-color;
+  }
+  & h3 , & h3 .btn{
+    font-weight: 400;//zmiana
+    font-size: 1.3*$pixel-font-scale*$primary-font-scale;
+    font-family: $primary-font-family;
+  margin-top: 10px;
+  text-align: center;
+    @media (max-width: $mobile-width) {
+      font-size: 1.3*$em-font-scale*$primary-font-scale;
+    }
+    & i{
+    vertical-align: middle;
+      padding-right: 5px;
+    }
+  }
+
+  @extend .container-fluid !optional;
+}
+
+.affix{
+  position: fixed;
+}
+
+
+.affix{
+  position: fixed;
+}
+
+.main-menu{
+  z-index: 100;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  .main-menu_menu{
+    .nav-link{
+      color:$primary-text-color;
+      border-radius: 4px !important;
+
+      &:hover{
+        color:$background-color;
+        background-color: $primary-text-color;
+      }
+    }
+    .ignore:hover{
+      color:$primary-text-color !important;
+      background-color: $background-color !important;
+    }
+    font-size:1.1em;
+  }
+}
+.main-menu_logo{
+  width: 60px;
+}
+.main-menu, .main-menu_menu{
+  align-items: flex-start;
+}
+@media (min-width: $mobile-width) {
+  .main-menu_expand-button{
+    display: none;
+  }
+  .main-menu_menu .collapse {
+    display: block;
+  }
+}
+
+
+@media (max-width: $mobile-width) {
+  .menu-list{
+background: $background-color;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid $primary-text-color;
+  }
+  .main-menu_logo{
+    margin: 5px auto 5px 5px;
+    height: auto;
+
+  }
+  .main-menu_menu{
+    align-items: flex-end;
+  }
+  .main-menu_language-selector{
+    display: none;
+  }
+
+  .main-menu{
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+    padding: 10px;
+  }
+
+}
+
+.text-screen{
+  h1{
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
+}
+.text-screen_text{
+  margin-left: 20px;
+}
+.cv-screen .text-screen_text{
+  padding-left: 20px;
+  h2{
+    padding-top: 20px;
+  }
+  span{
+    font-weight: 400;
+  }
+}
+.cv-screen,.motiv-screen{
+  padding: 20px;
+}
+
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0;}
+}
+  .slick-prev:before, .slick-next:before {
+     color: #000000;
+   }
+.slide{
+  img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+    width: 80% !important;
+    margin-left: 10%;
+    height: auto !important;
+
+}
+  text-align: center;
+
+  img:hover {
+   // box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+  }
+
+}
